@@ -1,0 +1,1179 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>A Volta Esta Proxima | Portal Cristao Premium</title><meta name="description" content="Portal cristao protestante premium com noticias globais, perseguicao, milagres, sinais dos tempos e analise biblica."><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#fbfaf7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="A Volta"><link rel="apple-touch-icon" href="icon-192.svg"><link rel="icon" type="image/svg+xml" href="icon-192.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+* {margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased}
+
+:root {
+--ouro: #c9a961;
+--ouro-claro: #e8d5a0;
+--ouro-escuro: #b8924a;
+--ouro-suave: #d4b87a;
+--branco: #ffffff;
+--off-white: #fbfaf7;
+--bege: #f5f1e8;
+--cinza-claro: #ede9e0;
+--cinza: #6b6358;
+--cinza-escuro: #3d3830;
+--preto: #1a1612;
+--linha: rgba(201, 169, 97, 0.18);
+--sombra: 0 4px 24px rgba(26, 22, 18, 0.06);
+--sombra-forte: 0 12px 40px rgba(26, 22, 18, 0.10);
+}
+
+html { scroll-behavior:smooth }
+body {
+font-family: 'Inter', -apple-system, sans-serif;
+background: var(--off-white);
+color: var(--cinza-escuro);
+font-size: 15px;
+line-height: 1.65;
+overflow-x: hidden;
+position: relative;
+min-height: 100vh;
+}
+
+::selection { background: var(--ouro-claro); color: var(--preto) }
+::-webkit-scrollbar { width:8px }
+::-webkit-scrollbar-track { background: var(--bege) }
+::-webkit-scrollbar-thumb { background: var(--ouro-suave); border-radius:999px }
+
+/* RELOGIO GIGANTE NO FUNDO */
+.relogio-fundo {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 800px;
+height: 800px;
+max-width: 110vw;
+max-height: 110vw;
+pointer-events: none;
+z-index: 0;
+opacity: 0.06;
+}
+.relogio-fundo svg { width: 100%; height: 100% }
+.ponteiro-h {
+transform-origin: 400px 400px;
+animation: girarH 720s linear infinite;
+}
+.ponteiro-m {
+transform-origin: 400px 400px;
+animation: girarM 60s linear infinite;
+}
+@keyframes girarH { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes girarM { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+/* CONTAINER GERAL */
+.wrap { position: relative; z-index: 1 }
+
+/* HEADER */
+header {
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(251, 250, 247, 0.92);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid var(--linha);
+padding: 0 28px;
+height: 76px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.logo {
+font-family: 'Cormorant Garamond', serif;
+font-size: 22px;
+font-weight: 600;
+letter-spacing: -0.4px;
+color: var(--preto);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.logo-mark {
+display: inline-block;
+width: 30px;
+height: 30px;
+border: 1.5px solid var(--ouro);
+border-radius: 50%;
+position: relative;
+}
+.logo-mark::before, .logo-mark::after {
+content: '';
+position: absolute;
+background: var(--ouro);
+left: 50%;
+top: 50%;
+transform-origin: 0 0;
+}
+.logo-mark::before {
+width: 1.5px; height: 9px;
+transform: translate(-50%, -100%) rotate(40deg);
+}
+.logo-mark::after {
+width: 1.5px; height: 6px;
+transform: translate(-50%, -100%) rotate(-20deg);
+}
+.logo-text { display: flex; flex-direction: column; line-height: 1.1 }
+.logo-text small { font-size: 9px; color: var(--ouro-escuro); letter-spacing: 2.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500 }
+nav.menu { display: flex; gap: 24px }
+nav.menu a {
+font-size: 12px;
+color: var(--cinza);
+text-decoration: none;
+font-weight: 500;
+letter-spacing: 0.3px;
+transition: color 0.2s;
+}
+nav.menu a:hover { color: var(--ouro-escuro) }
+
+/* HERO */
+.hero {
+text-align: center;
+padding: 100px 24px 80px;
+position: relative;
+}
+.hero-eyebrow {
+display: inline-block;
+font-size: 10px;
+font-weight: 600;
+color: var(--ouro-escuro);
+letter-spacing: 3.5px;
+text-transform: uppercase;
+margin-bottom: 28px;
+padding: 8px 20px;
+border: 1px solid var(--linha);
+border-radius: 999px;
+background: rgba(255,255,255,0.6);
+backdrop-filter: blur(8px);
+}
+.hero h1 {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(42px, 8vw, 84px);
+font-weight: 500;
+line-height: 1.05;
+letter-spacing: -2px;
+color: var(--preto);
+margin-bottom: 20px;
+max-width: 880px;
+margin-left: auto;
+margin-right: auto;
+}
+.hero h1 .destaque {
+font-style: italic;
+color: var(--ouro-escuro);
+font-weight: 500;
+}
+.hero-sub {
+font-size: 16px;
+color: var(--cinza);
+max-width: 520px;
+margin: 0 auto;
+line-height: 1.75;
+font-weight: 400;
+}
+.hero-divider {
+width: 60px;
+height: 1px;
+background: var(--ouro);
+margin: 36px auto 0;
+position: relative;
+}
+.hero-divider::before, .hero-divider::after {
+content: '';
+position: absolute;
+top: 50%;
+width: 6px;
+height: 6px;
+background: var(--ouro);
+transform: translateY(-50%) rotate(45deg);
+}
+.hero-divider::before { left: -10px }
+.hero-divider::after { right: -10px }
+
+/* VERSICULO DO DIA */
+.versiculo {
+max-width: 720px;
+margin: 70px auto 80px;
+padding: 56px 40px;
+background: rgba(255, 255, 255, 0.7);
+backdrop-filter: blur(10px);
+border: 1px solid var(--linha);
+border-radius: 4px;
+position: relative;
+text-align: center;
+box-shadow: var(--sombra);
+}
+.versiculo::before, .versiculo::after {
+content: '';
+position: absolute;
+width: 24px;
+height: 24px;
+border: 1.5px solid var(--ouro);
+}
+.versiculo::before { top: -1px; left: -1px; border-right: none; border-bottom: none }
+.versiculo::after { bottom: -1px; right: -1px; border-left: none; border-top: none }
+.versiculo-label {
+font-size: 10px;
+color: var(--ouro-escuro);
+letter-spacing: 3px;
+text-transform: uppercase;
+margin-bottom: 22px;
+font-weight: 600;
+}
+.versiculo-texto {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(20px, 3.5vw, 28px);
+font-weight: 400;
+line-height: 1.45;
+color: var(--preto);
+font-style: italic;
+margin-bottom: 18px;
+letter-spacing: -0.3px;
+}
+.versiculo-ref {
+font-size: 11px;
+color: var(--ouro-escuro);
+letter-spacing: 2.5px;
+text-transform: uppercase;
+font-weight: 600;
+}
+
+/* ESTUDO DO DIA */
+.estudo {
+max-width: 880px;
+margin: 0 auto 80px;
+padding: 0 24px;
+}
+.estudo-card {
+background: var(--branco);
+border: 1px solid var(--linha);
+border-radius: 4px;
+padding: 44px;
+box-shadow: var(--sombra);
+position: relative;
+}
+.estudo-eyebrow {
+font-size: 10px;
+color: var(--ouro-escuro);
+letter-spacing: 3px;
+text-transform: uppercase;
+margin-bottom: 16px;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.estudo-eyebrow::before {
+content: '';
+width: 24px;
+height: 1px;
+background: var(--ouro);
+}
+.estudo-titulo {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(24px, 4vw, 34px);
+font-weight: 500;
+line-height: 1.15;
+color: var(--preto);
+margin-bottom: 8px;
+letter-spacing: -0.8px;
+}
+.estudo-base {
+font-size: 12px;
+color: var(--ouro-escuro);
+letter-spacing: 1.5px;
+text-transform: uppercase;
+margin-bottom: 24px;
+font-weight: 600;
+}
+.estudo-texto {
+font-size: 15px;
+color: var(--cinza-escuro);
+line-height: 1.85;
+margin-bottom: 24px;
+white-space: pre-line;
+}
+.estudo-aplicacao {
+padding-top: 24px;
+border-top: 1px solid var(--linha);
+font-size: 13px;
+color: var(--cinza);
+font-style: italic;
+line-height: 1.7;
+}
+.estudo-aplicacao strong {
+color: var(--ouro-escuro);
+font-weight: 600;
+font-style: normal;
+letter-spacing: 1px;
+text-transform: uppercase;
+font-size: 11px;
+display: block;
+margin-bottom: 8px;
+}
+
+/* CONTEUDO PRINCIPAL */
+.conteudo {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 24px 80px;
+}
+
+.secao { margin-bottom: 80px }
+.secao-header {
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+margin-bottom: 32px;
+padding-bottom: 16px;
+border-bottom: 1px solid var(--linha);
+}
+.secao-titulo-wrap {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+.secao-icone {
+font-size: 20px;
+}
+.secao-titulo {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(22px, 4vw, 30px);
+font-weight: 500;
+color: var(--preto);
+letter-spacing: -0.6px;
+}
+.secao-count {
+font-size: 11px;
+color: var(--ouro-escuro);
+font-weight: 600;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+}
+
+.secao-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 24px;
+}
+@media(min-width: 720px) {
+.secao-grid { grid-template-columns: repeat(2, 1fr) }
+}
+@media(min-width: 1000px) {
+.secao-grid { grid-template-columns: repeat(3, 1fr) }
+}
+
+.art-card {
+background: var(--branco);
+border: 1px solid var(--linha);
+border-radius: 4px;
+overflow: hidden;
+cursor: pointer;
+transition: all 0.3s ease;
+animation: fadeUp 0.5s ease both;
+display: flex;
+flex-direction: column;
+}
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(20px) }
+to { opacity: 1; transform: translateY(0) }
+}
+.art-card:hover {
+transform: translateY(-4px);
+box-shadow: var(--sombra-forte);
+border-color: var(--ouro-suave);
+}
+.card-img {
+width: 100%;
+height: 200px;
+background-size: cover;
+background-position: center;
+background-color: var(--bege);
+position: relative;
+}
+.card-img::after {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(180deg, transparent 50%, rgba(26, 22, 18, 0.15));
+}
+.card-body {
+padding: 22px 22px 20px;
+display: flex;
+flex-direction: column;
+flex: 1;
+}
+.card-meta {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 10px;
+margin-bottom: 12px;
+}
+.card-cat {
+font-weight: 700;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+}
+.card-tipo {
+color: var(--cinza);
+padding: 2px 8px;
+border: 1px solid var(--linha);
+border-radius: 999px;
+font-size: 9px;
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+.card-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 20px;
+font-weight: 600;
+line-height: 1.25;
+color: var(--preto);
+margin-bottom: 10px;
+letter-spacing: -0.4px;
+}
+.card-resumo {
+font-size: 13px;
+color: var(--cinza);
+line-height: 1.65;
+margin-bottom: 16px;
+flex: 1;
+}
+.card-footer {
+display: flex;
+justify-content: space-between;
+font-size: 10px;
+color: var(--cinza);
+padding-top: 14px;
+border-top: 1px solid var(--linha);
+letter-spacing: 0.5px;
+}
+.card-fonte { font-weight: 600 }
+.card-data { font-style: italic }
+
+/* MODAL ARTIGO */
+.modal {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(26, 22, 18, 0.6);
+backdrop-filter: blur(10px);
+z-index: 1000;
+padding: 16px;
+overflow-y: auto;
+}
+.modal.aberto {
+display: flex;
+align-items: flex-start;
+justify-content: center;
+animation: fadeIn 0.25s ease;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.modal-box {
+background: var(--branco);
+border: 1px solid var(--linha);
+border-radius: 4px;
+max-width: 720px;
+width: 100%;
+margin: auto;
+position: relative;
+animation: slideUp 0.35s ease;
+overflow: hidden;
+}
+@keyframes slideUp {
+from { opacity: 0; transform: translateY(20px) }
+to { opacity: 1; transform: translateY(0) }
+}
+.modal-close {
+position: absolute;
+top: 18px;
+right: 18px;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background: rgba(255,255,255,0.95);
+border: 1px solid var(--linha);
+color: var(--preto);
+font-size: 22px;
+font-weight: 300;
+cursor: pointer;
+z-index: 10;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.2s;
+}
+.modal-close:hover { background: var(--ouro); color: white; border-color: var(--ouro) }
+.modal-art-img {
+width: 100%;
+height: 280px;
+background-size: cover;
+background-position: center;
+background-color: var(--bege);
+}
+.modal-body { padding: 36px 32px 32px }
+.modal-meta {
+display: flex;
+gap: 12px;
+align-items: center;
+margin-bottom: 14px;
+font-size: 10px;
+}
+.modal-cat {
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+}
+.modal-tipo {
+padding: 3px 10px;
+border: 1px solid var(--linha);
+border-radius: 999px;
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+font-size: 9px;
+color: var(--cinza);
+}
+.modal-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(24px, 4.5vw, 34px);
+font-weight: 500;
+line-height: 1.15;
+color: var(--preto);
+margin-bottom: 14px;
+letter-spacing: -0.6px;
+}
+.modal-info {
+display: flex;
+gap: 8px;
+font-size: 11px;
+color: var(--cinza);
+margin-bottom: 24px;
+padding-bottom: 18px;
+border-bottom: 1px solid var(--linha);
+letter-spacing: 0.5px;
+}
+.modal-resumo {
+font-size: 15px;
+color: var(--cinza-escuro);
+line-height: 1.8;
+margin-bottom: 28px;
+}
+.modal-analise {
+background: var(--bege);
+padding: 22px 24px;
+border-left: 3px solid var(--ouro);
+margin-bottom: 24px;
+border-radius: 0 4px 4px 0;
+}
+.modal-analise-titulo {
+font-size: 10px;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+font-weight: 700;
+color: var(--ouro-escuro);
+margin-bottom: 10px;
+}
+.modal-analise-texto {
+font-family: 'Cormorant Garamond', serif;
+font-size: 17px;
+line-height: 1.55;
+color: var(--cinza-escuro);
+font-style: italic;
+}
+.modal-fonte-link {
+display: inline-block;
+font-size: 12px;
+color: var(--ouro-escuro);
+text-decoration: none;
+font-weight: 600;
+letter-spacing: 0.5px;
+border-bottom: 1px solid var(--ouro-suave);
+padding-bottom: 2px;
+transition: all 0.2s;
+}
+.modal-fonte-link:hover { color: var(--preto); border-color: var(--ouro-escuro) }
+
+/* NEWSLETTER */
+.newsletter {
+max-width: 620px;
+margin: 0 auto 80px;
+padding: 50px 32px;
+text-align: center;
+background: var(--branco);
+border: 1px solid var(--linha);
+border-radius: 4px;
+position: relative;
+box-shadow: var(--sombra);
+}
+.newsletter::before {
+content: '';
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 60px;
+height: 1px;
+background: var(--ouro);
+}
+.nl-eyebrow {
+font-size: 10px;
+letter-spacing: 3px;
+text-transform: uppercase;
+font-weight: 600;
+color: var(--ouro-escuro);
+margin-bottom: 14px;
+}
+.nl-titulo {
+font-family: 'Cormorant Garamond', serif;
+font-size: 28px;
+font-weight: 500;
+color: var(--preto);
+margin-bottom: 8px;
+letter-spacing: -0.5px;
+}
+.nl-desc {
+font-size: 13px;
+color: var(--cinza);
+margin-bottom: 28px;
+}
+.nl-form {
+display: flex;
+gap: 8px;
+max-width: 420px;
+margin: 0 auto;
+}
+.nl-input {
+flex: 1;
+border: 1px solid var(--linha);
+background: var(--off-white);
+padding: 13px 16px;
+font-size: 13px;
+color: var(--preto);
+font-family: inherit;
+border-radius: 2px;
+outline: none;
+transition: border 0.2s;
+}
+.nl-input:focus { border-color: var(--ouro) }
+.nl-btn {
+background: var(--preto);
+color: var(--branco);
+border: none;
+padding: 13px 22px;
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+cursor: pointer;
+font-family: inherit;
+transition: all 0.2s;
+border-radius: 2px;
+}
+.nl-btn:hover { background: var(--ouro-escuro) }
+.nl-ok {
+display: none;
+margin-top: 12px;
+font-size: 12px;
+color: var(--ouro-escuro);
+font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+border-top: 1px solid var(--linha);
+padding: 50px 24px 40px;
+text-align: center;
+background: var(--branco);
+}
+.footer-mark {
+display: inline-block;
+width: 40px;
+height: 40px;
+border: 1.5px solid var(--ouro);
+border-radius: 50%;
+margin-bottom: 16px;
+position: relative;
+}
+.footer-mark::before, .footer-mark::after {
+content: '';
+position: absolute;
+background: var(--ouro);
+left: 50%;
+top: 50%;
+transform-origin: 0 0;
+}
+.footer-mark::before {
+width: 1.5px; height: 12px;
+transform: translate(-50%, -100%) rotate(40deg);
+}
+.footer-mark::after {
+width: 1.5px; height: 8px;
+transform: translate(-50%, -100%) rotate(-20deg);
+}
+.footer-titulo {
+font-family: 'Cormorant Garamond', serif;
+font-size: 18px;
+font-weight: 600;
+color: var(--preto);
+letter-spacing: -0.3px;
+margin-bottom: 4px;
+}
+.footer-sub {
+font-size: 10px;
+color: var(--ouro-escuro);
+letter-spacing: 2.5px;
+text-transform: uppercase;
+margin-bottom: 20px;
+font-weight: 600;
+}
+.footer-versiculo {
+font-family: 'Cormorant Garamond', serif;
+font-style: italic;
+font-size: 14px;
+color: var(--cinza);
+max-width: 480px;
+margin: 0 auto 16px;
+line-height: 1.6;
+}
+.footer-ref {
+font-size: 10px;
+color: var(--ouro-escuro);
+letter-spacing: 2px;
+font-weight: 600;
+}
+
+@media (max-width: 720px) {
+header { padding: 0 16px; height: 64px }
+.logo { font-size: 18px; gap: 10px }
+.logo-mark { width: 26px; height: 26px }
+.logo-text small { font-size: 8px; letter-spacing: 2px }
+nav.menu { display: none }
+.hero { padding: 60px 18px 50px }
+.versiculo { padding: 40px 24px; margin: 50px 16px 60px }
+.estudo-card { padding: 28px 22px }
+.modal-body { padding: 28px 22px }
+.modal-art-img { height: 200px }
+.nl-form { flex-direction: column }
+.relogio-fundo { width: 130vw; height: 130vw }
+}
+</style></head><body><div class="relogio-fundo" aria-hidden="true">
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<circle cx="400" cy="400" r="380" fill="none" stroke="#c9a961" stroke-width="2"/>
+<circle cx="400" cy="400" r="350" fill="none" stroke="#c9a961" stroke-width="0.5"/>
+<g stroke="#c9a961" stroke-width="2">
+<line x1="400" y1="40" x2="400" y2="80"/>
+<line x1="400" y1="720" x2="400" y2="760"/>
+<line x1="40" y1="400" x2="80" y2="400"/>
+<line x1="720" y1="400" x2="760" y2="400"/>
+</g>
+<g stroke="#c9a961" stroke-width="1" opacity="0.5">
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(30 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(60 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(120 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(150 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(210 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(240 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(300 400 400)"/>
+<line x1="400" y1="40" x2="400" y2="60" transform="rotate(330 400 400)"/>
+</g>
+<text x="400" y="105" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="36" fill="#c9a961" font-weight="500">XII</text>
+<text x="690" y="415" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="36" fill="#c9a961" font-weight="500">III</text>
+<text x="400" y="720" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="36" fill="#c9a961" font-weight="500">VI</text>
+<text x="115" y="415" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="36" fill="#c9a961" font-weight="500">IX</text>
+<line class="ponteiro-h" x1="400" y1="400" x2="400" y2="200" stroke="#c9a961" stroke-width="4" stroke-linecap="round"/>
+<line class="ponteiro-m" x1="400" y1="400" x2="400" y2="120" stroke="#c9a961" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="400" cy="400" r="10" fill="#c9a961"/>
+<circle cx="400" cy="400" r="3" fill="#fbfaf7"/>
+</svg>
+</div><div class="wrap"><header><a class="logo" href="#"><span class="logo-mark"></span><span class="logo-text">A Volta Esta Proxima<small>Portal Cristao</small></span></a><nav class="menu"><a href="#sec-perseguicao">Perseguicao</a><a href="#sec-milagres">Milagres</a><a href="#sec-sinais">Sinais</a><a href="#sec-documentarios">Reportagens</a></nav></header><section class="hero"><div class="hero-eyebrow">Vigilancia & Discernimento</div><h1>Discernindo os <span class="destaque">sinais</span> dos nossos tempos</h1><p class="hero-sub">Um portal de curadoria global sobre perseguicao, milagres, testemunhos e os acontecimentos do mundo cristao protestante - com analise biblica e sem sensacionalismo.</p><div class="hero-divider"></div></section><div class="versiculo"><div class="versiculo-label">Versiculo do Dia</div><div class="versiculo-texto">"Examinai os espiritos se sao de Deus, porque ja muitos falsos profetas se tem levantado no mundo."</div><div class="versiculo-ref">1 Joao 4:1</div></div><section class="estudo"><div class="estudo-card"><div class="estudo-eyebrow">Estudo do Dia</div><h2 class="estudo-titulo">Discernindo os Sinais dos Tempos</h2><div class="estudo-base">Mateus 24:32-33 · Discernimento</div><div class="estudo-texto">Jesus comparou os sinais dos tempos a figueira: quando os ramos brotam, sabemos que o verao esta proximo. Da mesma forma, devemos observar os sinais que ele descreveu - guerras, fome, terremotos, apostasia, falsos profetas - sem cair em sensacionalismo.
+
+O erro de muitos e marcar datas (Jesus disse que nem ele as sabia) ou interpretar cada noticia como sinal apocaliptico. O equilibrio biblico e estar atento sem se desesperar, vigilante sem ser fanatico, esperancoso sem ser ingenuo.</div><div class="estudo-aplicacao"><strong>Aplicacao</strong>Leia uma noticia hoje com olhos biblicos: o que ela diz sobre o estado do mundo?</div></div></section><div class="conteudo"><section class="secao" id="sec-perseguicao">
+<div class="secao-header">
+<div class="secao-titulo-wrap">
+<span class="secao-icone" style="color:#8b1538">✝</span>
+<h2 class="secao-titulo">Perseguicao aos Cristaos</h2>
+</div>
+<span class="secao-count">3</span>
+</div>
+<div class="secao-grid"><article class="art-card" style="animation-delay:0.35000000000000003s" onclick="abreArtigo(7)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#8b1538">✝ Perseguicao aos Cristaos</span>
+<span class="card-tipo">Noticia</span>
+</div>
+<h3 class="card-title">Cristaos da Nigeria pedem oracao apos ataques recorrentes no norte do pais</h3>
+<p class="card-resumo">Lideranca eclesiastica nacional emite apelo a igreja global apos serie de ataques em comunidades rurais cristas atribuidos a grupos extremistas.</p>
+<div class="card-footer">
+<span class="card-fonte">Christian Association of Nigeria</span>
+<span class="card-data">14 Abr 2026</span>
+</div>
+</div>
+</article><article class="art-card" style="animation-delay:0.1s" onclick="abreArtigo(2)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#8b1538">✝ Perseguicao aos Cristaos</span>
+<span class="card-tipo">Noticia</span>
+</div>
+<h3 class="card-title">Igreja em Niger e queimada por extremistas; pastor escapa com a familia</h3>
+<p class="card-resumo">Ataque ocorreu durante a madrugada em vilarejo a 80 km da capital. Comunidade local mobiliza apoio para reconstrucao do templo.</p>
+<div class="card-footer">
+<span class="card-fonte">Voz dos Martires</span>
+<span class="card-data">5 Mar 2026</span>
+</div>
+</div>
+</article><article class="art-card" style="animation-delay:0.0s" onclick="abreArtigo(0)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#8b1538">✝ Perseguicao aos Cristaos</span>
+<span class="card-tipo">Noticia</span>
+</div>
+<h3 class="card-title">Coreia do Norte mantem-se como pior pais para cristaos pelo 22o ano consecutivo</h3>
+<p class="card-resumo">Relatorio anual da Portas Abertas indica que regime continua sendo o mais severo do mundo contra cristaos, com mais de 200 mil estimados em campos de trabalho.</p>
+<div class="card-footer">
+<span class="card-fonte">Portas Abertas</span>
+<span class="card-data">15 Jan 2026</span>
+</div>
+</div>
+</article></div>
+</section><section class="secao" id="sec-milagres">
+<div class="secao-header">
+<div class="secao-titulo-wrap">
+<span class="secao-icone" style="color:#c9a961">✦</span>
+<h2 class="secao-titulo">Milagres e Maravilhas</h2>
+</div>
+<span class="secao-count">1</span>
+</div>
+<div class="secao-grid"><article class="art-card" style="animation-delay:0.05s" onclick="abreArtigo(1)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1602523498302-6e51f0f5e6f8?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#c9a961">✦ Milagres e Maravilhas</span>
+<span class="card-tipo">Testemunho</span>
+</div>
+<h3 class="card-title">Avivamento em vilarejo da India atrai atencao apos centenas se converterem</h3>
+<p class="card-resumo">Comunidade rural no estado de Madhya Pradesh testemunha movimento espiritual com relatos de curas e libertacoes apos missao itinerante.</p>
+<div class="card-footer">
+<span class="card-fonte">Christian Today</span>
+<span class="card-data">10 Fev 2026</span>
+</div>
+</div>
+</article></div>
+</section><section class="secao" id="sec-testemunhos">
+<div class="secao-header">
+<div class="secao-titulo-wrap">
+<span class="secao-icone" style="color:#5a7d2a">❖</span>
+<h2 class="secao-titulo">Testemunhos</h2>
+</div>
+<span class="secao-count">1</span>
+</div>
+<div class="secao-grid"><article class="art-card" style="animation-delay:0.2s" onclick="abreArtigo(4)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#5a7d2a">❖ Testemunhos</span>
+<span class="card-tipo">Testemunho</span>
+</div>
+<h3 class="card-title">Jovem ex-muculmano testemunha conversao apos sonho com Jesus</h3>
+<p class="card-resumo">Relato vindo do Iran de jovem de 24 anos que diz ter tido sonhos consecutivos com a figura de Cristo antes de buscar uma Biblia clandestinamente.</p>
+<div class="card-footer">
+<span class="card-fonte">Open Doors USA</span>
+<span class="card-data">1 Abr 2026</span>
+</div>
+</div>
+</article></div>
+</section><section class="secao" id="sec-sinais">
+<div class="secao-header">
+<div class="secao-titulo-wrap">
+<span class="secao-icone" style="color:#1a3a52">◈</span>
+<h2 class="secao-titulo">Sinais dos Tempos</h2>
+</div>
+<span class="secao-count">1</span>
+</div>
+<div class="secao-grid"><article class="art-card" style="animation-delay:0.15000000000000002s" onclick="abreArtigo(3)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#1a3a52">◈ Sinais dos Tempos</span>
+<span class="card-tipo">Interpretacao</span>
+</div>
+<h3 class="card-title">Tremores significativos sao registrados em regioes biblicas do Oriente Medio</h3>
+<p class="card-resumo">Atividade sismica acima da media tem sido observada nas regioes da Turquia, Siria e Israel nos ultimos meses, segundo dados do Servico Geologico dos EUA.</p>
+<div class="card-footer">
+<span class="card-fonte">USGS</span>
+<span class="card-data">20 Mar 2026</span>
+</div>
+</div>
+</article></div>
+</section><section class="secao" id="sec-documentarios">
+<div class="secao-header">
+<div class="secao-titulo-wrap">
+<span class="secao-icone" style="color:#7a5c2e">▣</span>
+<h2 class="secao-titulo">Documentarios e Reportagens</h2>
+</div>
+<span class="secao-count">1</span>
+</div>
+<div class="secao-grid"><article class="art-card" style="animation-delay:0.25s" onclick="abreArtigo(5)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#7a5c2e">▣ Documentarios e Reportagens</span>
+<span class="card-tipo">Reflexao</span>
+</div>
+<h3 class="card-title">Documentario explora vida da igreja subterranea na China contemporanea</h3>
+<p class="card-resumo">Producao independente de 90 minutos acompanhou por dois anos comunidades cristas que se reunem em casas, lojas e fabricas, evitando vigilancia governamental.</p>
+<div class="card-footer">
+<span class="card-fonte">Documentario Independente</span>
+<span class="card-data">10 Abr 2026</span>
+</div>
+</div>
+</article></div>
+</section><section class="secao" id="sec-noticias">
+<div class="secao-header">
+<div class="secao-titulo-wrap">
+<span class="secao-icone" style="color:#3d3d3d">❋</span>
+<h2 class="secao-titulo">Noticias do Mundo Cristao</h2>
+</div>
+<span class="secao-count">1</span>
+</div>
+<div class="secao-grid"><article class="art-card" style="animation-delay:0.30000000000000004s" onclick="abreArtigo(6)">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1503424886307-b090341d25d1?w=800')"></div>
+<div class="card-body">
+<div class="card-meta">
+<span class="card-cat" style="color:#3d3d3d">❋ Noticias do Mundo Cristao</span>
+<span class="card-tipo">Noticia</span>
+</div>
+<h3 class="card-title">Relatorio aponta crescimento da igreja evangelica no Ira apesar da repressao</h3>
+<p class="card-resumo">Numero de cristaos persas teria multiplicado por 20 nas ultimas duas decadas, segundo estimativas de organizacoes missionarias internacionais.</p>
+<div class="card-footer">
+<span class="card-fonte">Operation Mobilization</span>
+<span class="card-data">12 Abr 2026</span>
+</div>
+</div>
+</article></div>
+</section><section class="newsletter"><div class="nl-eyebrow">Receba a curadoria</div><div class="nl-titulo">Mantenha-se vigilante</div><p class="nl-desc">Conteudo selecionado, sem sensacionalismo, no seu email.</p><div class="nl-form"><input class="nl-input" type="email" id="nl-email" placeholder="seu@email.com"><button class="nl-btn" onclick="newsletter()">Inscrever</button></div><div class="nl-ok" id="nl-ok">Inscricao confirmada.</div></section></div><div class="modal" id="art-7" onclick="if(event.target===this)fechaModal('art-7')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-7')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#8b1538">✝ Perseguicao aos Cristaos</span>
+<span class="modal-tipo">Noticia</span>
+</div>
+<h2 class="modal-title">Cristaos da Nigeria pedem oracao apos ataques recorrentes no norte do pais</h2>
+<div class="modal-info">
+<span>Christian Association of Nigeria</span>
+<span>·</span>
+<span>14 Abr 2026</span>
+</div>
+<p class="modal-resumo">Lideranca eclesiastica nacional emite apelo a igreja global apos serie de ataques em comunidades rurais cristas atribuidos a grupos extremistas.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Tiago 5:16 - Muito pode, por sua eficacia, a suplica do justo. A oracao intercessoria nao e um gesto vazio - tem poder real. Cristaos nigerianos pedem nao apenas socorro material, mas sustento espiritual via oracao do corpo de Cristo mundial.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-6" onclick="if(event.target===this)fechaModal('art-6')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-6')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1503424886307-b090341d25d1?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#3d3d3d">❋ Noticias do Mundo Cristao</span>
+<span class="modal-tipo">Noticia</span>
+</div>
+<h2 class="modal-title">Relatorio aponta crescimento da igreja evangelica no Ira apesar da repressao</h2>
+<div class="modal-info">
+<span>Operation Mobilization</span>
+<span>·</span>
+<span>12 Abr 2026</span>
+</div>
+<p class="modal-resumo">Numero de cristaos persas teria multiplicado por 20 nas ultimas duas decadas, segundo estimativas de organizacoes missionarias internacionais.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Mateus 16:18 - Edificarei a minha igreja, e as portas do inferno nao prevalecerao contra ela. A igreja persa e prova de que nem regime mais hostil consegue parar o evangelho. Cresce justamente onde se espera que morresse.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-5" onclick="if(event.target===this)fechaModal('art-5')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-5')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#7a5c2e">▣ Documentarios e Reportagens</span>
+<span class="modal-tipo">Reflexao</span>
+</div>
+<h2 class="modal-title">Documentario explora vida da igreja subterranea na China contemporanea</h2>
+<div class="modal-info">
+<span>Documentario Independente</span>
+<span>·</span>
+<span>10 Abr 2026</span>
+</div>
+<p class="modal-resumo">Producao independente de 90 minutos acompanhou por dois anos comunidades cristas que se reunem em casas, lojas e fabricas, evitando vigilancia governamental.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Hebreus 10:25 - Nao deixando a nossa congregacao, como e costume de alguns. Mesmo sob risco de prisao, milhoes de cristaos chineses se reunem fielmente. Sua dedicacao expoe a tepidez da igreja ocidental, que tem liberdade mas comparece com baixa frequencia.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-4" onclick="if(event.target===this)fechaModal('art-4')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-4')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#5a7d2a">❖ Testemunhos</span>
+<span class="modal-tipo">Testemunho</span>
+</div>
+<h2 class="modal-title">Jovem ex-muculmano testemunha conversao apos sonho com Jesus</h2>
+<div class="modal-info">
+<span>Open Doors USA</span>
+<span>·</span>
+<span>1 Abr 2026</span>
+</div>
+<p class="modal-resumo">Relato vindo do Iran de jovem de 24 anos que diz ter tido sonhos consecutivos com a figura de Cristo antes de buscar uma Biblia clandestinamente.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Joel 2:28 - Derramarei o meu Espirito sobre toda a carne, e vossos filhos e vossas filhas profetizarao, vossos velhos terao sonhos. Relatos de conversao via sonhos no mundo islamico tem sido documentados por missionarios ha decadas. Cristo se revela aos que o buscam.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-3" onclick="if(event.target===this)fechaModal('art-3')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-3')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#1a3a52">◈ Sinais dos Tempos</span>
+<span class="modal-tipo">Interpretacao</span>
+</div>
+<h2 class="modal-title">Tremores significativos sao registrados em regioes biblicas do Oriente Medio</h2>
+<div class="modal-info">
+<span>USGS</span>
+<span>·</span>
+<span>20 Mar 2026</span>
+</div>
+<p class="modal-resumo">Atividade sismica acima da media tem sido observada nas regioes da Turquia, Siria e Israel nos ultimos meses, segundo dados do Servico Geologico dos EUA.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Mateus 24:7 - E haverao terremotos em varios lugares. Jesus citou terremotos como um dos sinais que precederiam sua volta - mas advertiu que sao apenas o principio das dores. Devemos observar com discernimento, sem alarmismo, lembrando que ele mesmo disse que ninguem sabe o dia nem a hora.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-2" onclick="if(event.target===this)fechaModal('art-2')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-2')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#8b1538">✝ Perseguicao aos Cristaos</span>
+<span class="modal-tipo">Noticia</span>
+</div>
+<h2 class="modal-title">Igreja em Niger e queimada por extremistas; pastor escapa com a familia</h2>
+<div class="modal-info">
+<span>Voz dos Martires</span>
+<span>·</span>
+<span>5 Mar 2026</span>
+</div>
+<p class="modal-resumo">Ataque ocorreu durante a madrugada em vilarejo a 80 km da capital. Comunidade local mobiliza apoio para reconstrucao do templo.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">2 Timoteo 3:12 - Todos os que piamente querem viver em Cristo Jesus padecerao perseguicoes. A igreja africana cresce mesmo sob ataque - dado mostra que mais de 5.000 cristaos sao mortos por ano em paises africanos. A igreja persegui da ainda assim cresce.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-1" onclick="if(event.target===this)fechaModal('art-1')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-1')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1602523498302-6e51f0f5e6f8?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#c9a961">✦ Milagres e Maravilhas</span>
+<span class="modal-tipo">Testemunho</span>
+</div>
+<h2 class="modal-title">Avivamento em vilarejo da India atrai atencao apos centenas se converterem</h2>
+<div class="modal-info">
+<span>Christian Today</span>
+<span>·</span>
+<span>10 Fev 2026</span>
+</div>
+<p class="modal-resumo">Comunidade rural no estado de Madhya Pradesh testemunha movimento espiritual com relatos de curas e libertacoes apos missao itinerante.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Atos 2:43 - E em toda alma havia temor, e muitas maravilhas e sinais se faziam pelos apostolos. Movimentos genuinos do Espirito sao caracterizados por arrependimento, transformacao de vida e centralidade em Cristo - nao apenas por sinais. Cabe discernir cada testemunho pela Palavra.</p>
+</div>
+
+</div>
+</div>
+</div><div class="modal" id="art-0" onclick="if(event.target===this)fechaModal('art-0')">
+<div class="modal-box">
+<button class="modal-close" onclick="fechaModal('art-0')">×</button>
+<div class="modal-art-img" style="background-image:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800')"></div>
+<div class="modal-body">
+<div class="modal-meta">
+<span class="modal-cat" style="color:#8b1538">✝ Perseguicao aos Cristaos</span>
+<span class="modal-tipo">Noticia</span>
+</div>
+<h2 class="modal-title">Coreia do Norte mantem-se como pior pais para cristaos pelo 22o ano consecutivo</h2>
+<div class="modal-info">
+<span>Portas Abertas</span>
+<span>·</span>
+<span>15 Jan 2026</span>
+</div>
+<p class="modal-resumo">Relatorio anual da Portas Abertas indica que regime continua sendo o mais severo do mundo contra cristaos, com mais de 200 mil estimados em campos de trabalho.</p>
+<div class="modal-analise">
+<div class="modal-analise-titulo">Analise Biblica</div>
+<p class="modal-analise-texto">Mateus 5:10 - Bem-aventurados os que sofrem perseguicao por causa da justica, porque deles e o reino dos ceus. A igreja subterranea norte-coreana e exemplo vivo de fe que resiste mesmo sem acesso a Biblia, sem reuniao publica e sob vigilancia constante. Devemos lembrar deles em oracao.</p>
+</div>
+
+</div>
+</div>
+</div><footer><div class="footer-mark"></div><div class="footer-titulo">A Volta Esta Proxima</div><div class="footer-sub">Portal Cristao Protestante</div><p class="footer-versiculo">"Eis que venho sem demora; e o meu galardao esta comigo, para retribuir a cada um segundo as suas obras."</p><div class="footer-ref">Apocalipse 22:12</div></footer></div><script>
+function abreArtigo(idx) {
+const m = document.getElementById('art-' + idx);
+if (m) {
+m.classList.add('aberto');
+document.body.style.overflow = 'hidden';
+}
+}
+function fechaModal(id) {
+const m = document.getElementById(id);
+if (m) {
+m.classList.remove('aberto');
+document.body.style.overflow = '';
+}
+}
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+document.querySelectorAll('.modal.aberto').forEach(m => fechaModal(m.id));
+}
+});
+function newsletter() {
+const e = document.getElementById('nl-email').value;
+if (!e || e.indexOf('@') < 0) { alert('Email invalido'); return; }
+fetch('https://formsubmit.co/ajax/SEU_EMAIL@gmail.com', {
+method: 'POST',
+headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+body: JSON.stringify({email: e, _subject: 'Newsletter A Volta Esta Proxima'})
+}).catch(() => {});
+document.getElementById('nl-ok').style.display = 'block';
+document.getElementById('nl-email').value = '';
+}
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+});
+}
+</script></body></html>
