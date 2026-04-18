@@ -1,0 +1,10 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+<rect width='512' height='512' rx='90' fill='#fbfaf7'/>
+<circle cx='256' cy='256' r='190' fill='none' stroke='#c9a961' stroke-width='8'/>
+<circle cx='256' cy='256' r='170' fill='none' stroke='#c9a961' stroke-width='2' opacity='0.5'/>
+<line x1='256' y1='256' x2='256' y2='130' stroke='#c9a961' stroke-width='10' stroke-linecap='round'/>
+<line x1='256' y1='256' x2='340' y2='256' stroke='#c9a961' stroke-width='6' stroke-linecap='round'/>
+<circle cx='256' cy='256' r='14' fill='#c9a961'/>
+<circle cx='256' cy='256' r='5' fill='#fbfaf7'/>
+<text x='256' y='95' text-anchor='middle' font-family='Georgia,serif' font-size='32' fill='#c9a961' font-weight='600'>XII</text>
+</svg>
