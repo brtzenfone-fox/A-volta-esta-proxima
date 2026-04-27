@@ -1,6 +1,6 @@
 """
-A Volta Esta Proxima - Gerador de Site
-Portal cristao protestante premium
+A Volta Está Próxima - Gerador de Site
+Portal cristão protestante premium
 v1.0
 """
 
@@ -9,23 +9,23 @@ import os
 from datetime import datetime, date
 
 ARTIGOS_FILE = "artigos.json"
-VERSICULOS_FILE = "versiculos.json"
+VERSICULOS_FILE = "versículos.json"
 ESTUDOS_FILE = "estudos.json"
 
 CATEGORIAS = {
-    "perseguicao": {"nome": "Perseguicao aos Cristaos", "icone": "✝", "cor": "#8b1538"},
-    "milagres": {"nome": "Milagres e Maravilhas", "icone": "✦", "cor": "#c9a961"},
-    "testemunhos": {"nome": "Testemunhos", "icone": "❖", "cor": "#5a7d2a"},
-    "sinais": {"nome": "Sinais dos Tempos", "icone": "◈", "cor": "#1a3a52"},
-    "noticias": {"nome": "Noticias do Mundo Cristao", "icone": "❋", "cor": "#3d3d3d"},
-    "documentarios": {"nome": "Documentarios e Reportagens", "icone": "▣", "cor": "#7a5c2e"},
+    "perseguição": {"nome": "Perseguição aos Cristãos", "icone": "â", "cor": "#8b1538"},
+    "milagres": {"nome": "Milagres e Maravilhas", "icone": "â¦", "cor": "#c9a961"},
+    "testemunhos": {"nome": "Testemunhos", "icone": "â", "cor": "#5a7d2a"},
+    "sinais": {"nome": "Sinais dos Tempos", "icone": "â", "cor": "#1a3a52"},
+    "notícias": {"nome": "Notícias do Mundo Cristão", "icone": "â", "cor": "#3d3d3d"},
+    "documentários": {"nome": "Documentários e Reportagens", "icone": "â£", "cor": "#7a5c2e"},
 }
 
 TIPOS = {
-    "noticia": "Noticia",
+    "notícia": "Notícia",
     "testemunho": "Testemunho",
-    "interpretacao": "Interpretacao",
-    "reflexao": "Reflexao",
+    "interpretação": "Interpretação",
+    "reflexão": "Reflexão",
 }
 
 def carregar_json(arquivo, padrao=None):
@@ -35,11 +35,11 @@ def carregar_json(arquivo, padrao=None):
     except:
         return padrao if padrao is not None else []
 
-def versiculo_do_dia(versiculos):
-    if not versiculos:
+def versículo_do_dia(versículos):
+    if not versículos:
         return {"texto": "", "ref": ""}
-    idx = date.today().toordinal() % len(versiculos)
-    return versiculos[idx]
+    idx = date.today().toordinal() % len(versículos)
+    return versículos[idx]
 
 def estudo_do_dia(estudos):
     if not estudos:
@@ -57,9 +57,9 @@ def formatar_data(data_str):
         return data_str
 
 def gerar_card_artigo(art, idx=0):
-    cat = art.get("categoria", "noticias")
-    cat_info = CATEGORIAS.get(cat, CATEGORIAS["noticias"])
-    tipo = TIPOS.get(art.get("tipo", "noticia"), "Noticia")
+    cat = art.get("categoria", "notícias")
+    cat_info = CATEGORIAS.get(cat, CATEGORIAS["notícias"])
+    tipo = TIPOS.get(art.get("tipo", "notícia"), "Notícia")
     delay = f"animation-delay:{idx*0.05}s"
     img = art.get("imagem", "")
     img_html = f'<div class="card-img" style="background-image:url(\'{img}\')"></div>' if img else ''
@@ -71,7 +71,7 @@ def gerar_card_artigo(art, idx=0):
 <span class="card-cat" style="color:{cat_info['cor']}">{cat_info['icone']} {cat_info['nome']}</span>
 <span class="card-tipo">{tipo}</span>
 </div>
-<h3 class="card-title">{art['titulo']}</h3>
+<h3 class="card-title">{art['título']}</h3>
 <p class="card-resumo">{art['resumo']}</p>
 <div class="card-footer">
 <span class="card-fonte">{art.get('fonte','')}</span>
@@ -81,33 +81,33 @@ def gerar_card_artigo(art, idx=0):
 </article>'''
 
 def gerar_modal_artigo(art, idx):
-    cat = art.get("categoria", "noticias")
-    cat_info = CATEGORIAS.get(cat, CATEGORIAS["noticias"])
-    tipo = TIPOS.get(art.get("tipo", "noticia"), "Noticia")
+    cat = art.get("categoria", "notícias")
+    cat_info = CATEGORIAS.get(cat, CATEGORIAS["notícias"])
+    tipo = TIPOS.get(art.get("tipo", "notícia"), "Notícia")
     img = art.get("imagem", "")
     img_html = f'<div class="modal-art-img" style="background-image:url(\'{img}\')"></div>' if img else ''
     url_ext = art.get("url", "#")
-    fonte_link = f'<a href="{url_ext}" target="_blank" class="modal-fonte-link">Ler na fonte original →</a>' if url_ext and url_ext != "#" else ''
+    fonte_link = f'<a href="{url_ext}" target="_blank" class="modal-fonte-link">Ler na fonte original â</a>' if url_ext and url_ext != "#" else ''
 
     return f'''<div class="modal" id="art-{idx}" onclick="if(event.target===this)fechaModal('art-{idx}')">
 <div class="modal-box">
-<button class="modal-close" onclick="fechaModal('art-{idx}')">×</button>
+<button class="modal-close" onclick="fechaModal('art-{idx}')">Ã</button>
 {img_html}
 <div class="modal-body">
 <div class="modal-meta">
 <span class="modal-cat" style="color:{cat_info['cor']}">{cat_info['icone']} {cat_info['nome']}</span>
 <span class="modal-tipo">{tipo}</span>
 </div>
-<h2 class="modal-title">{art['titulo']}</h2>
+<h2 class="modal-title">{art['título']}</h2>
 <div class="modal-info">
 <span>{art.get('fonte','')}</span>
-<span>·</span>
+<span>Â·</span>
 <span>{formatar_data(art.get('data',''))}</span>
 </div>
 <p class="modal-resumo">{art['resumo']}</p>
-<div class="modal-analise">
-<div class="modal-analise-titulo">Analise Biblica</div>
-<p class="modal-analise-texto">{art.get('analise_biblica', '')}</p>
+<div class="modal-análise">
+<div class="modal-análise-título">Análise Bíblica</div>
+<p class="modal-análise-texto">{art.get('análise_bíblica', '')}</p>
 </div>
 {fonte_link}
 </div>
@@ -117,15 +117,15 @@ def gerar_modal_artigo(art, idx):
 def gerar_secao_categoria(cat_id, artigos_cat):
     if not artigos_cat:
         return ""
-    cat_info = CATEGORIAS.get(cat_id, CATEGORIAS["noticias"])
+    cat_info = CATEGORIAS.get(cat_id, CATEGORIAS["notícias"])
     cards = ""
     for a in artigos_cat:
         cards += gerar_card_artigo(a, a["_idx"])
     return f'''<section class="secao" id="sec-{cat_id}">
 <div class="secao-header">
-<div class="secao-titulo-wrap">
+<div class="secao-título-wrap">
 <span class="secao-icone" style="color:{cat_info['cor']}">{cat_info['icone']}</span>
-<h2 class="secao-titulo">{cat_info['nome']}</h2>
+<h2 class="secao-título">{cat_info['nome']}</h2>
 </div>
 <span class="secao-count">{len(artigos_cat)}</span>
 </div>
@@ -325,7 +325,7 @@ transform: translateY(-50%) rotate(45deg);
 .hero-divider::after { right: -10px }
 
 /* VERSICULO DO DIA */
-.versiculo {
+.versículo {
 max-width: 720px;
 margin: 70px auto 80px;
 padding: 56px 40px;
@@ -337,16 +337,16 @@ position: relative;
 text-align: center;
 box-shadow: var(--sombra);
 }
-.versiculo::before, .versiculo::after {
+.versículo::before, .versículo::after {
 content: '';
 position: absolute;
 width: 24px;
 height: 24px;
 border: 1.5px solid var(--ouro);
 }
-.versiculo::before { top: -1px; left: -1px; border-right: none; border-bottom: none }
-.versiculo::after { bottom: -1px; right: -1px; border-left: none; border-top: none }
-.versiculo-label {
+.versículo::before { top: -1px; left: -1px; border-right: none; border-bottom: none }
+.versículo::after { bottom: -1px; right: -1px; border-left: none; border-top: none }
+.versículo-label {
 font-size: 10px;
 color: var(--ouro-escuro);
 letter-spacing: 3px;
@@ -354,7 +354,7 @@ text-transform: uppercase;
 margin-bottom: 22px;
 font-weight: 600;
 }
-.versiculo-texto {
+.versículo-texto {
 font-family: 'Cormorant Garamond', serif;
 font-size: clamp(20px, 3.5vw, 28px);
 font-weight: 400;
@@ -364,7 +364,7 @@ font-style: italic;
 margin-bottom: 18px;
 letter-spacing: -0.3px;
 }
-.versiculo-ref {
+.versículo-ref {
 font-size: 11px;
 color: var(--ouro-escuro);
 letter-spacing: 2.5px;
@@ -403,7 +403,7 @@ width: 24px;
 height: 1px;
 background: var(--ouro);
 }
-.estudo-titulo {
+.estudo-título {
 font-family: 'Cormorant Garamond', serif;
 font-size: clamp(24px, 4vw, 34px);
 font-weight: 500;
@@ -427,7 +427,7 @@ line-height: 1.85;
 margin-bottom: 24px;
 white-space: pre-line;
 }
-.estudo-aplicacao {
+.estudo-aplicação {
 padding-top: 24px;
 border-top: 1px solid var(--linha);
 font-size: 13px;
@@ -435,7 +435,7 @@ color: var(--cinza);
 font-style: italic;
 line-height: 1.7;
 }
-.estudo-aplicacao strong {
+.estudo-aplicação strong {
 color: var(--ouro-escuro);
 font-weight: 600;
 font-style: normal;
@@ -462,7 +462,7 @@ margin-bottom: 32px;
 padding-bottom: 16px;
 border-bottom: 1px solid var(--linha);
 }
-.secao-titulo-wrap {
+.secao-título-wrap {
 display: flex;
 align-items: center;
 gap: 14px;
@@ -470,7 +470,7 @@ gap: 14px;
 .secao-icone {
 font-size: 20px;
 }
-.secao-titulo {
+.secao-título {
 font-family: 'Cormorant Garamond', serif;
 font-size: clamp(22px, 4vw, 30px);
 font-weight: 500;
@@ -695,14 +695,14 @@ color: var(--cinza-escuro);
 line-height: 1.8;
 margin-bottom: 28px;
 }
-.modal-analise {
+.modal-análise {
 background: var(--bege);
 padding: 22px 24px;
 border-left: 3px solid var(--ouro);
 margin-bottom: 24px;
 border-radius: 0 4px 4px 0;
 }
-.modal-analise-titulo {
+.modal-análise-título {
 font-size: 10px;
 letter-spacing: 2.5px;
 text-transform: uppercase;
@@ -710,7 +710,7 @@ font-weight: 700;
 color: var(--ouro-escuro);
 margin-bottom: 10px;
 }
-.modal-analise-texto {
+.modal-análise-texto {
 font-family: 'Cormorant Garamond', serif;
 font-size: 17px;
 line-height: 1.55;
@@ -760,7 +760,7 @@ font-weight: 600;
 color: var(--ouro-escuro);
 margin-bottom: 14px;
 }
-.nl-titulo {
+.nl-título {
 font-family: 'Cormorant Garamond', serif;
 font-size: 28px;
 font-weight: 500;
@@ -847,7 +847,7 @@ transform: translate(-50%, -100%) rotate(40deg);
 width: 1.5px; height: 8px;
 transform: translate(-50%, -100%) rotate(-20deg);
 }
-.footer-titulo {
+.footer-título {
 font-family: 'Cormorant Garamond', serif;
 font-size: 18px;
 font-weight: 600;
@@ -863,7 +863,7 @@ text-transform: uppercase;
 margin-bottom: 20px;
 font-weight: 600;
 }
-.footer-versiculo {
+.footer-versículo {
 font-family: 'Cormorant Garamond', serif;
 font-style: italic;
 font-size: 14px;
@@ -886,7 +886,7 @@ header { padding: 0 16px; height: 64px }
 .logo-text small { font-size: 8px; letter-spacing: 2px }
 nav.menu { display: none }
 .hero { padding: 60px 18px 50px }
-.versiculo { padding: 40px 24px; margin: 50px 16px 60px }
+.versículo { padding: 40px 24px; margin: 50px 16px 60px }
 .estudo-card { padding: 28px 22px }
 .modal-body { padding: 28px 22px }
 .modal-art-img { height: 200px }
@@ -921,7 +921,7 @@ if (!e || e.indexOf('@') < 0) { alert('Email invalido'); return; }
 fetch('https://formsubmit.co/ajax/SEU_EMAIL@gmail.com', {
 method: 'POST',
 headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-body: JSON.stringify({email: e, _subject: 'Newsletter A Volta Esta Proxima'})
+body: JSON.stringify({email: e, _subject: 'Newsletter A Volta Esta Próxima'})
 }).catch(() => {});
 document.getElementById('nl-ok').style.display = 'block';
 document.getElementById('nl-email').value = '';
@@ -966,7 +966,7 @@ RELOGIO_SVG = """<div class="relogio-fundo" aria-hidden="true">
 
 def gerar_html():
     artigos = carregar_json(ARTIGOS_FILE, [])
-    versiculos = carregar_json(VERSICULOS_FILE, [])
+    versículos = carregar_json(VERSICULOS_FILE, [])
     estudos = carregar_json(ESTUDOS_FILE, [])
 
     for i, a in enumerate(artigos):
@@ -974,19 +974,19 @@ def gerar_html():
 
     artigos.sort(key=lambda a: a.get("data",""), reverse=True)
 
-    vd = versiculo_do_dia(versiculos)
+    vd = versículo_do_dia(versículos)
     ed = estudo_do_dia(estudos)
 
     por_cat = {}
     for a in artigos:
-        cat = a.get("categoria", "noticias")
+        cat = a.get("categoria", "notícias")
         por_cat.setdefault(cat, []).append(a)
 
     html = '<!DOCTYPE html><html lang="pt-BR"><head>'
     html += '<meta charset="UTF-8">'
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
-    html += '<title>A Volta Esta Proxima | Portal Cristao Premium</title>'
-    html += '<meta name="description" content="Portal cristao protestante premium com noticias globais, perseguicao, milagres, sinais dos tempos e analise biblica.">'
+    html += '<title>A Volta Esta Próxima | Portal Cristão Premium</title>'
+    html += '<meta name="description" content="Portal cristão protestante premium com notícias globais, perseguição, milagres, sinais dos tempos e análise bíblica.">'
     html += '<link rel="manifest" href="manifest.json">'
     html += '<meta name="theme-color" content="#fbfaf7">'
     html += '<meta name="apple-mobile-web-app-capable" content="yes">'
@@ -1003,47 +1003,47 @@ def gerar_html():
 
     html += '<header><a class="logo" href="#">'
     html += '<span class="logo-mark"></span>'
-    html += '<span class="logo-text">A Volta Esta Proxima<small>Portal Cristao</small></span></a>'
+    html += '<span class="logo-text">A Volta Esta Próxima<small>Portal Cristão</small></span></a>'
     html += '<nav class="menu">'
-    html += '<a href="#sec-perseguicao">Perseguicao</a>'
+    html += '<a href="#sec-perseguição">Perseguição</a>'
     html += '<a href="#sec-milagres">Milagres</a>'
     html += '<a href="#sec-sinais">Sinais</a>'
-    html += '<a href="#sec-documentarios">Reportagens</a>'
+    html += '<a href="#sec-documentários">Reportagens</a>'
     html += '</nav></header>'
 
     html += '<section class="hero">'
     html += '<div class="hero-eyebrow">Vigilancia & Discernimento</div>'
     html += '<h1>Discernindo os <span class="destaque">sinais</span> dos nossos tempos</h1>'
-    html += '<p class="hero-sub">Um portal de curadoria global sobre perseguicao, milagres, testemunhos e os acontecimentos do mundo cristao protestante - com analise biblica e sem sensacionalismo.</p>'
+    html += '<p class="hero-sub">Um portal de curadoria global sobre perseguição, milagres, testemunhos e os acontecimentos do mundo cristão protestante - com análise bíblica e sem sensacionalismo.</p>'
     html += '<div class="hero-divider"></div>'
     html += '</section>'
 
     if vd.get("texto"):
-        html += '<div class="versiculo">'
-        html += '<div class="versiculo-label">Versiculo do Dia</div>'
-        html += f'<div class="versiculo-texto">"{vd["texto"]}"</div>'
-        html += f'<div class="versiculo-ref">{vd["ref"]}</div>'
+        html += '<div class="versículo">'
+        html += '<div class="versículo-label">Versículo do Dia</div>'
+        html += f'<div class="versículo-texto">"{vd["texto"]}"</div>'
+        html += f'<div class="versículo-ref">{vd["ref"]}</div>'
         html += '</div>'
 
     if ed:
         html += '<section class="estudo"><div class="estudo-card">'
         html += '<div class="estudo-eyebrow">Estudo do Dia</div>'
-        html += f'<h2 class="estudo-titulo">{ed["titulo"]}</h2>'
-        html += f'<div class="estudo-base">{ed["texto_base"]} · {ed["tema"]}</div>'
+        html += f'<h2 class="estudo-título">{ed["título"]}</h2>'
+        html += f'<div class="estudo-base">{ed["texto_base"]} Â· {ed["tema"]}</div>'
         html += f'<div class="estudo-texto">{ed["conteudo"]}</div>'
-        html += f'<div class="estudo-aplicacao"><strong>Aplicacao</strong>{ed["aplicacao"]}</div>'
+        html += f'<div class="estudo-aplicação"><strong>Aplicação</strong>{ed["aplicação"]}</div>'
         html += '</div></section>'
 
     html += '<div class="conteudo">'
 
-    ordem = ["perseguicao", "milagres", "testemunhos", "sinais", "documentarios", "noticias"]
+    ordem = ["perseguição", "milagres", "testemunhos", "sinais", "documentários", "notícias"]
     for cat_id in ordem:
         if cat_id in por_cat:
             html += gerar_secao_categoria(cat_id, por_cat[cat_id])
 
     html += '<section class="newsletter">'
     html += '<div class="nl-eyebrow">Receba a curadoria</div>'
-    html += '<div class="nl-titulo">Mantenha-se vigilante</div>'
+    html += '<div class="nl-título">Mantenha-se vigilante</div>'
     html += '<p class="nl-desc">Conteudo selecionado, sem sensacionalismo, no seu email.</p>'
     html += '<div class="nl-form">'
     html += '<input class="nl-input" type="email" id="nl-email" placeholder="seu@email.com">'
@@ -1059,9 +1059,9 @@ def gerar_html():
 
     html += '<footer>'
     html += '<div class="footer-mark"></div>'
-    html += '<div class="footer-titulo">A Volta Esta Proxima</div>'
-    html += '<div class="footer-sub">Portal Cristao Protestante</div>'
-    html += '<p class="footer-versiculo">"Eis que venho sem demora; e o meu galardao esta comigo, para retribuir a cada um segundo as suas obras."</p>'
+    html += '<div class="footer-título">A Volta Esta Próxima</div>'
+    html += '<div class="footer-sub">Portal Cristão Protestante</div>'
+    html += '<p class="footer-versículo">"Eis que venho sem demora; e o meu galardao esta comigo, para retribuir a cada um segundo as suas obras."</p>'
     html += '<div class="footer-ref">Apocalipse 22:12</div>'
     html += '</footer>'
 
@@ -1072,9 +1072,9 @@ def gerar_html():
     return html
 
 MANIFEST = """{
-  "name": "A Volta Esta Proxima",
+  "name": "A Volta Esta Próxima",
   "short_name": "A Volta",
-  "description": "Portal cristao protestante premium",
+  "description": "Portal cristão protestante premium",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -1113,7 +1113,7 @@ ICON_SVG = """<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
 </svg>"""
 
 def main():
-    print("\nA Volta Esta Proxima - " + datetime.now().strftime("%d/%m/%Y %H:%M"))
+    print("\nA Volta Esta Próxima - " + datetime.now().strftime("%d/%m/%Y %H:%M"))
     print("=" * 50)
     html = gerar_html()
     with open("index.html", "w", encoding="utf-8") as f:
